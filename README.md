@@ -4,9 +4,7 @@ A system developed as a part of my Final Year Project
 Leave Management System is a system that facilitates the leave management process in a company. The system can help Human Resource to manage leave application systematically as well as calculate leave balance and trace who is on leave or not. The system will be used primarily by the admin and employees. Admin are allowed to create employees account, add leaves, approve or reject applications, update employees account and details leave, view details of applications, employees and leaves as well as employees’ leave history and balance. Employees are allowed to apply leave, update profile details, view details of application and status of application as well as application history and leave balance.
 
 # Technology Used
-- HTML
-- CSS
-- JavaScript
+- PHP 8
 - Bootstrap 5
 - XAMPP
 - MySQL
