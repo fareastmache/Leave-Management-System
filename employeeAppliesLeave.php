@@ -36,7 +36,7 @@
     include("config.php");
     session_start();
 
-    require_once "swiftmailer/vendor/autoload.php";
+    require_once "vendor/autoload.php";
 
     if(isset($_SESSION["sID"])) { 
       $ID = $_SESSION["userID"];
