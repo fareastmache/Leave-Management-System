@@ -167,7 +167,7 @@
           // Create the Transport
           $transport = (new Swift_SmtpTransport('smtp.googlemail.com', 465, 'ssl'))
             ->setUsername('fypise2022@gmail.com')
-            ->setPassword('fyp270222#')
+            ->setPassword('pznkeidszbkhwygq')
           ;
       
           // Create the Mailer using your created Transport
