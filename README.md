@@ -6,9 +6,9 @@ Leave Management System is a system that facilitates the leave management proces
 # Technology Used
 - PHP 8
 - Bootstrap 5
-- XAMPP
 - MySQL
 - Swift Mailer
+- Google Calendar API
 
 # Screenshot
 ![image](https://user-images.githubusercontent.com/54427696/153501029-0d417c95-45be-42fd-a535-84d227024bf1.png)
