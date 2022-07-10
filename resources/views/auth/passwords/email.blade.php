@@ -1,47 +1,68 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                    
+                    <!-- Start Logo --> 
+                    <div class="d-flex justify-content-center py-4">
+                        <a href="{{ route('login') }}" class="logo d-flex align-items-center w-auto">
+                            <img src="{{ asset('img/humanops-logo.svg') }}" alt="logo"/>
+                        </a>
+                    </div>
+                    <!-- End Logo --> 
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <div class="card mb-3">
+                        <div class="card-body">
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+                            <div class="pt-4 pb-2">
+                                <h5 class="card-title text-center pb-0 fs-4">
+                                    {{ __('Reset Your Account Password') }} 
+                                </h5>
+                                <p class="text-center small">
+                                    {{ __('Enter Email Address To Send Reset Password Link') }} 
+                                </p>
+                            </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+                            <!-- Start Log in form --> 
+                            <form method="post" action="{{ route('password.email') }}" class="row g-3" novalidate>
+                                @csrf
+                                
+                                <div class="col-12">
+                                    <label for="email" class="form-label">
+                                        {{ __('Email') }} 
+                                    </label>
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" required autocomplete="email" autofocus>
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                        </div>
+                                    @enderror
+                                </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
+                                <div class="col-12">
+                                    <p class="small mb-0">
+                                        {{ __('Back to login?') }}  
+                                        <a href="{{ route('login') }}">
+                                            {{ __('Click here') }} 
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100" name="submit">
+                                        {{ __('Submit') }} 
+                                    </button>
+                                </div> 
+
+                            </form>
+                            <!-- End Log in form --> 
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>     
 @endsection
