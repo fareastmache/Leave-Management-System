@@ -1,5 +1,13 @@
 @extends('layouts.auth')
 
+@section('style')
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
@@ -70,8 +78,11 @@
                                 </div>
 
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary w-100"  name="login">
-                                        {{ __('Log in') }} 
+                                    <button type="submit" class="btn btn-primary w-100"  id="login">
+                                        <i class="loading-icon fa fa-spinner fa-spin hide"></i>
+                                        <span class="btn-txt">
+                                            {{ __('Log In') }} 
+                                        </span>
                                     </button>
                                 </div>
 
@@ -87,16 +98,36 @@
 
 @section('script')
     <script type="text/javascript">
+
         const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
 
         togglePassword.addEventListener("click", function () {
-            // toggle the type attribute
+
             const type = password.getAttribute("type") === "password" ? "text" : "password";
             password.setAttribute("type", type);
-            
-            // toggle the icon
             this.classList.toggle("bi-eye");
         });
+
+        const login = document.querySelector("#login");
+        const loadingIcon = document.querySelector(".loading-icon");
+        const buttonText = document.querySelector(".btn-txt");
+
+        login.addEventListener("click", function () {
+
+            const list = loadingIcon.classList;
+            list.remove("hide");
+            // login.setAttribute("disabled", "");     Alternate code: login.disabled = true;
+            buttonText.textContent = "Please wait";
+
+            /*
+            setTimeout(() => {
+                list.add("hide");
+                login.removeAttribute("disabled");  // Alternate code: login.disabled = false;
+                buttonText.textContent = "Log in";
+            }, 3000);
+            */
+        });
+
     </script>
 @endsection
